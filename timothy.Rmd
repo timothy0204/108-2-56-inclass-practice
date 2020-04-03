@@ -182,3 +182,13 @@ class(majors10_char)
 levels(majors10_char)
 ```
 
+
+
+```{r}
+vectorExample <- c(2, 6, 7)
+listExample <- list(2, 6, 7)
+
+print(vectorExample)
+print(listExample)
+```
+
