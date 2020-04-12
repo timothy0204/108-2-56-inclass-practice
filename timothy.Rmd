@@ -505,6 +505,105 @@ vectorExample[c(T,T,F)] # 要，要，不要
 ```
 
 ```{r}
+str(listExample)
+str(listExample[c(F,T)]) # 不要，要
+str(listExample[c(T,T)]) # 要，要
+```
 
+
+
+```{r}
+names(taipeiNightMarkets)
+```
+
+```{r}
+c(T,F,
+  F,F,
+  T,F,
+  F,F,
+  F,T,
+  F,F,
+  F,T) ->selectedMarkets
+taipeiNightMarkets[selectedMarkets]
+
+
+str(taipeiNightMarkets[c(T,F,
+  F,F,
+  T,F,
+  F,F,
+  F,T,
+  F,F,
+  F,T)],max.level=1)
+```
+
+
+```{r}
+selectedMarkets <- rep(F,14) #repeat
+print(selectedMarkets)
+selectedMarkets[c(1,5,10,14)] <- TRUE
+print(selectedMarkets)
+```
+
+```{r}
+str(listExample)
+```
+
+```{r}
+get1 <- listExample[["學期"]]
+get2 <- listExample["學期"]
+```
+
+```{r}
+get1 <- listExample[["學期"]]
+str(get1, max.level = 1)
+```
+
+
+```{r}
+#get1 # 學期拿出來，有3個元素的list
+str(listExample, max.level = 3)
+```
+
+
+
+
+```{r}
+get2 <-listExample["學期"] 
+#listExample只留下 學期元素，是個只有一個元素的list
+str(get2, max.level = 1)
+str(get2, max.level = 2)
+```
+
+
+```{r}
+str(listExample, max.level = 3)
+```
+
+```{r}
+str(get1, max.level = 1)
+```
+
+```{r}
+str(get2, max.level = 2)
+```
+
+
+##連鎖選取
+
+```{r}
+numVector <- c(2,3,6,-1,4,2,6)
+select1 <- numVector[c(1,4)]; select1
+select2 <- select1[[1]]; select2
+
+# 相當於
+numVector[c(1,4)][[1]]
+```
+
+```{r}
+select1 <- numVector[c(T,T,F,T,F,F,T)]; select1
+select2 <- select1[c(1,4)]; select2
+
+# 相當於
+numVector[c(T,T,F,T,F,F,T)][c(1,4)]
 ```
 
