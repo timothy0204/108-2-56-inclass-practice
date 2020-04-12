@@ -1,0 +1,7 @@
+"0","temperature <- list("
+"0"," day=c(ymd(""2020-03-31""),ymd(""2020-04-01"")),"
+"0"," city1=list(""台北市"",highest=c(25),lowest=c(18)),"
+"0"," city2=list(""新北市"",highest=c(24),lowest=c(15))"
+"0"," )"
+"2","Error in ymd(""2020-03-31"") : 沒有這個函數 ""ymd""
+"
