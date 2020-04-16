@@ -897,3 +897,156 @@ str(newTaipeiYouBike[[10]])
 
 ```
 
+
+
+
+##額外
+```{r}
+char1Vector<-c("你好","How are you?")
+char1Vector
+class(char1Vector)
+```
+
+```{r}
+num <- c(1.5, 2, 3)
+int <- c(1L, 3L, -2L)
+char <- c("1.5","2","3")
+logi <- c(T,T,F)
+
+typeof(num)
+typeof(int)
+typeof(char)
+typeof(logi)
+```
+
+```{r}
+# 10位學生的主系
+majors10_char <- c('經濟學系','社會學系','社會學系','經濟學系','經濟學系','社會學系','經濟學系','經濟學系','經濟學系','社會學系')
+
+typeof(majors10_char)
+class(majors10_char)
+```
+
+```{r}
+majors10_factor <- factor(majors10_char)
+# 或
+majors10_factor <- factor(
+  c('經濟學系','社會學系','社會學系','經濟學系','經濟學系','社會學系','經濟學系','經濟學系','經濟學系','社會學系')
+)
+
+typeof(majors10_factor)
+class(majors10_factor)
+```
+
+```{r}
+majors10_char
+```
+
+
+```{r}
+majors10_factor
+```
+
+```{r}
+as.integer(majors10_factor) 
+```
+
+```{r}
+levels(majors10_factor)
+```
+```{r}
+char3 <- c("小明","1","3")
+as.integer(char3)
+```
+
+```{r}
+stringInteger <- c("1","2","-11")
+class(stringInteger) # 無法進行數值運算
+stringInteger+2
+```
+
+
+```{r}
+trueInteger <- as.integer(stringInteger)
+class(trueInteger) # 可以進行數值運算
+typeof(trueInteger)
+trueInteger+2
+```
+
+```{r}
+tpeTime <- c("2020-03-18 13:52:40",
+             "2020-03-11 03:12:40")
+tpeTime <- 
+  ymd_hms(
+    tpeTime, # 呼叫tpeTime向量值
+    tz="Asia/Taipei"
+    )
+```
+
+```{r}
+pgTime <- mdy_hms("Mar.18, 2020, 05:52:40",
+                  tz="Europe/Lisbon")
+```
+
+
+```{r}
+browseURL("https://docs.google.com/spreadsheets/d/1EAG49qDKPWWi0ebkVr29TLrvVnoBPfkvxYY-J3xLAHY/edit#gid=458686645")
+```
+
+
+```{r}
+with_tz(tpeTime, tzone="UTC")
+with_tz(pgTime, tzone="UTC")
+```
+
+```{r}
+commit <- list(
+  author = c("Martin老師", "mtlin@gm.ntpu.edu.tw", "2020-03-25T07:17:40Z"),
+  committer = c("emilyluckey", "emily007@gmail.com", "2020-03-26T08:18:40Z"),
+  message = c("update")
+)
+print(commit)
+```
+
+```{r}
+`小明的修課紀錄` <- 
+  list(
+    name = "小明",
+    semester = list(
+      `108-1` <-
+        list(
+          year = 108,
+          semester = 1,
+          courses = 
+            list(
+              name="個體經濟學",
+                  teacher="Alice",
+                  grade=85
+            ),
+            list(
+               name="總體經濟學",
+                  teacher="Mark",
+                  grade=78
+          ),
+       `108-2` <-
+         list(
+          year = 108,
+          semester = 2,
+          courses = 
+            list(
+              list(
+                  name="作業研究",
+                  teacher="Jason",
+                  grade=90
+              )
+              )
+           
+         )
+        )
+      
+    )
+  )
+小明的修課紀錄
+```
+
+
