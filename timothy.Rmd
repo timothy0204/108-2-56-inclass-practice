@@ -1146,3 +1146,174 @@ paste0(
 )
 ```
 
+## 比較
+
+```{r}
+example$name[c(T, F, T, F)]
+```
+
+```{r}
+example <- list(
+  name=c("小明","小花","小新","美美"),
+  height=c(175,166,170,160),
+  weight=c(77,NA,60,43),
+  birthday=lubridate::ymd(c("1998-03-11","1999-12-22","1995-08-22","2001-10-10")),
+  hobby=c("美食 旅遊","旅遊 時尚","3C 美食","音樂 旅遊"),
+  residence=c("Taipei","New Taipei","Taichung","Kaohsiung"),
+  allowance=factor(c("0-1000","1001-2000","2000+","1001-2000")),
+  bloodType=c("A","B","B","O")
+)
+```
+
+
+```{r}
+str(example[c("name","height")])
+
+pick_above170 <- example$height >= 170
+example$height
+c(175, 166, 170, 160) >= 170
+
+example$name[pick_above170]
+```
+
+```{r}
+source("https://www.dropbox.com/s/qsrw069n94k61lj/transcript100to103_list.R?dl=1")
+```
+
+```{r}
+str(transcript100to103)
+```
+
+```{r}
+# 只要成績大於85的
+pick_above85 <-
+  transcript100to103$`成績` > 85
+```
+
+
+```{r}
+# 各學屆2年級人數
+table(transcript100to103$學屆)
+# 各學屆2年級成績大於85年數
+table(transcript100to103$學屆[pick_above85])
+```
+
+```{r}
+example$birthday
+class(example$birthday)
+typeof(example$birthday)
+```
+```{r}
+print(example[c("name","birthday")])
+
+pick_after98 <- example$birthday >= lubridate::ymd("1998-01-01")
+example$name[pick_after98]
+```
+
+```{r}
+source("https://www.dropbox.com/s/16h6ggua6qtydci/exchangeRate.R?dl=1")
+```
+
+```{r}
+str(exchangeRate)
+```
+
+```{r}
+exchangeRate_after98 <-
+  list(
+    `期間`=exchangeRate$`期間`[pick_after98_01],
+    `幣別`=exchangeRate$`幣別`[pick_after98_01],
+    `匯率`=exchangeRate$`匯率`[pick_after98_01]
+    
+  )
+```
+
+```{r}
+# 只要1998年1月（含）以後的
+library(lubridate)
+pick_after98_01 <-
+  exchangeRate$期間 >= ymd("1998-01-01")
+```
+
+```{r}
+exchangeRate_after98 <-
+  list(
+    `期間`=exchangeRate$`期間`[pick_after98_01],
+    `幣別`=exchangeRate$`幣別`[pick_after98_01],
+    `匯率`=exchangeRate$`匯率`[pick_after98_01]
+  )
+```
+
+```{r}
+example$allowance <- 
+  ordered(example$allowance)
+```
+
+```{r}
+example$allowance <-
+  factor(
+    example$allowance,
+    levels=c("0-1000", "1001-2000", "2000+"),
+    ordered = T # 設定為可排序factor
+  )
+```
+
+```{r}
+pick_allowanceOver1000 <- example$allowance >= "1001-2000"
+example$name[pick_allowanceOver1000]
+```
+
+```{r}
+print(example[c("name","allowance")])
+
+pick_allowanceOver1000 <- example$allowance >= "1001-2000"
+example$name[pick_allowanceOver1000]
+```
+
+```{r}
+print(example[c("name","bloodType")])
+
+pick_bloodB <- example$bloodType == "B"
+example$name[pick_bloodB]
+```
+
+```{r}
+sequenceNums <- c(11, 6, 8, 11, 12, 11, 3, 7, 10, 8)
+
+pick_evens <- (sequenceNums %% 2) == 0
+sequenceNums[pick_evens]
+```
+
+```{r}
+x <- c(1,5,8)
+y <- c(5,8)
+
+# x裡的元素值是不是屬於y集合
+x %in% y
+```
+
+```{r}
+print(example[c("name","residence")])
+
+set_TaipeiMetro <- c("Taipei","New Taipei")
+pick_fromTaipeiMetro <- example$residence %in% set_TaipeiMetro
+example$name[pick_fromTaipeiMetro]
+```
+```{r}
+str(transcript100to103)
+```
+
+```{r}
+levels(factor(transcript100to103$`學院`))
+
+unique(transcript100to103$學院)
+```
+
+
+```{r}
+set_LawBusiness <- c("法學院", "商學院")
+ 
+pick_LawBusiness <- transcript100to103$`學院` %in% set_LawBusiness
+print(pick_LawBusiness)
+```
+
