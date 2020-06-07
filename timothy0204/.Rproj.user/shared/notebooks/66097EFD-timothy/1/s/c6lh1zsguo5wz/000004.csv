@@ -1,0 +1,4 @@
+"0","vNum4 <- c(vNum4, vNum1) # 向量疊代 （recursive vector concatenate）
+"
+"2","錯誤: 找不到物件 'vNum4'
+"

@@ -1,0 +1,7 @@
+"0","# 資料"
+"0","population <- c(`cityA`=500,`cityB`=1500, `cityC`=399)"
+"0","cities <- c(""cityA"",""cityA"",""cityB"",""cityB"",""cityC"")"
+"0",""
+"0","# 分析步驟"
+"0","names(sort(population)) -> setLevels"
+"0","factor(cities, levels = setLevels) -> cities "

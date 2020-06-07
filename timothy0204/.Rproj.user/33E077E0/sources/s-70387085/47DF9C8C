@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1586261564954.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4080882925",
+    "id" : "47DF9C8C",
+    "lastKnownWriteTime" : 1591547267,
+    "last_content_update" : 1591547267322,
+    "path" : "~/GitHub/108-2-56-inclass-practice/timothy.Rmd",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "2418,39",
+        "last_setup_crc32" : "",
+        "scrollLine" : "2405"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

@@ -1,0 +1,3 @@
+"0","population %>% "
+"0","  {names(sort(.))} %>%"
+"0","  factor(cities, levels=.) -> cities"
