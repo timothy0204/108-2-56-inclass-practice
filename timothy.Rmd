@@ -3122,3 +3122,44 @@ dplyr::case_when(
 )
 ```
 
+
+
+## iteration
+```{r}
+sampleData <- list(
+  list("男", 45), list("女", 32), list("男",50), list("男",33), list("女", 21)
+)
+```
+
+```{r}
+# 前三筆性別
+sampleData[[1]][[1]]
+sampleData[[2]][[1]]
+sampleData[[3]][[1]]
+```
+
+```{r}
+sampleData[[1]][[1]]  
+sampleData[[2]][[1]] 
+sampleData[[3]][[1]] 
+```
+
+```{r}
+library(purrr)
+# 串接寫法(I): external dispatch
+sampleData[[1]] %>% {.[[1]]} 
+sampleData[[2]] %>% {.[[1]]}
+sampleData[[3]] %>% {.[[1]]}
+
+map(sampleData, ~{.x[[1]]})
+
+# 串接寫法(II): internal dispatch
+1 %>% {sampleData[[.]][[1]]}  
+2 %>% {sampleData[[.]][[1]]}  
+3 %>% {sampleData[[.]][[1]]}
+
+map(1:5, ~{sampleData[[.x]][[1]]})
+# map在單維度遞迴時，.x也可以只寫.
+map(1:5, ~{sampleData[[.]][[1]]})
+```
+
