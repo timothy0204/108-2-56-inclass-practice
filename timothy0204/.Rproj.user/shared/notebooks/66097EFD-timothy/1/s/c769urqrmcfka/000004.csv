@@ -1,0 +1,13 @@
+"0","studentSequence <- 1:length(examSubmissionTime$section)"
+"0","library(purrr)"
+"2","
+Attaching package: ．purrr・
+
+"
+"2","The following object is masked from ．package:magrittr・:
+
+    set_names
+
+"
+"0","list_howEarly <- map(studentSequence, ~compute_howEarly(examSubmissionTime$section[[.x]], "
+"0","    examSubmissionTime$time[[.x]]))"

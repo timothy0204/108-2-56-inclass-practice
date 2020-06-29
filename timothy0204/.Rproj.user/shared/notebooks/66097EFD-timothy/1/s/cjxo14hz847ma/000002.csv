@@ -1,0 +1,8 @@
+"0","SOAR::Remove(weather_next36hours)"
+"2","Object weather_next36hours not found and hence not removed
+"
+"2","./.R_Cache does not currently exist.  A call to 'Store' will create it."
+"0","system.time(askSilly_weather2(""新北市"", today()))"
+"2","Error in askSilly_weather2(""新北市"", today()) : 
+  沒有這個函數 ""askSilly_weather2""
+"

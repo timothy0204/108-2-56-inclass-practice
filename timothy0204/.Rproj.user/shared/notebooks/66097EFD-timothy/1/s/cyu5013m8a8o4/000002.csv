@@ -1,0 +1,30 @@
+"0","askSilly_weather2 <- function(locationInput, dateInput) {"
+"0","    if (!exists(""weather_next36hours"")) {"
+"0","        weather_next36hours <- jsonlite::fromJSON(""https://opendata.cwb.gov.tw/fileapi/v1/opendataapi/F-C0032-001?Authorization=rdec-key-123-45678-011121314&format=JSON"")"
+"0","        SOAR::Store(weather_next36hours)  # 存在.R_cache environment中"
+"0","    }"
+"0","    pick_location <- (weather_next36hours$cwbopendata$dataset$location$locationName == "
+"0","        locationInput)"
+"0","    "
+"0","    weatherAtLocation <- weather_next36hours$cwbopendata$dataset$location$weatherElement[pick_location][[1]]"
+"0","    pick_MaxT <- (weatherAtLocation$elementName == ""MaxT"")"
+"0","    pick_MinT <- (weatherAtLocation$elementName == ""MinT"")"
+"0","    maxT <- weatherAtLocation$time[pick_MaxT][[1]]$parameter$parameterName[[1]]"
+"0","    minT <- weatherAtLocation$time[pick_MinT][[1]]$parameter$parameterName[[1]]"
+"0","    "
+"0","    glue::glue(""{locationInput} {dateInput} 氣溫，最高{maxT}度，最低{minT}度。"")"
+"2","錯誤: Incomplete expression: askSilly_weather2 <- function(locationInput, dateInput) {
+    if (!exists(""weather_next36hours"")) {
+        weather_next36hours <- jsonlite::fromJSON(""https://opendata.cwb.gov.tw/fileapi/v1/opendataapi/F-C0032-001?Authorization=rdec-key-123-45678-011121314&format=JSON"")
+        SOAR::Store(weather_next36hours)  # 摮.R_cache environment銝?    }
+    pick_location <- (weather_next36hours$cwbopendata$dataset$location$locationName == 
+        locationInput)
+    
+    weatherAtLocation <- weather_next36hours$cwbopendata$dataset$location$weatherElement[pick_location][[1]]
+    pick_MaxT <- (weatherAtLocation$elementName == ""MaxT"")
+    pick_MinT <- (weatherAtLocation$elementName == ""MinT"")
+    maxT <- weatherAtLocation$time[pick_MaxT][[1]]$parameter$parameterName[[1]]
+    minT <- weatherAtLocation$time[pick_MinT][[1]]$parameter$parameterName[[1]]
+    
+    glue::glue(""{locationInput} {dateInput} 瘞?澈嚗?擃maxT}摨佗??雿minT}摨艾?)
+"
